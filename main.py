@@ -71,7 +71,7 @@ class CNN_RNN_Model(nn.Module):
     def forward(self, x):
         b_z, ts, c, h, w = x.shape
         i = 0
-        y = self.baseModel((x[:,i]))
+        y = self.cnn_model((x[:,i]))
         output, (hn, cn) = self.rnn(y.unsqueeze(1))
 
         for i in range(1, ts):
